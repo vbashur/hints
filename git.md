@@ -1,4 +1,4 @@
-Hints for GIT
+# Hints for GIT
 
 This command will sync the local repository with the remote repository getting rid of every change you have made on your local\
 `git reset --hard origin/<branch>`
@@ -10,5 +10,9 @@ Check outcoming commits (that haven't been pushed) at your local branch\
 Whenever 'rebase' doesn't go smooth\
 `git rebase --abort`\
 `rm -fr .git/rebase-merge`
+
+Ignore changes on local files\
+`git update-index --assume-unchanged ../custom/bestsecretcore/buildPrototype.sh`\
+`git update-index --assume-unchanged ../idea-module-files/e2e-tests.iml`
 
 
