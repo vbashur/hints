@@ -7,7 +7,7 @@ Check outcoming commits (that haven't been pushed) at your local branch\
 `git log @{u}..`
 
 
-Whenever 'rebase' doesn't goes smooth\
+Whenever 'rebase' doesn't go smooth\
 `git rebase --abort`\
 `rm -fr .git/rebase-merge`
 
