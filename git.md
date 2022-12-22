@@ -8,5 +8,7 @@ Check outcoming commits (that haven't been pushed) at your local branch\
 
 
 Whenever 'rebase' doesn't goes smooth\
-`git rebase --abort\
-rm -fr ".git/rebase-merge`
+`git rebase --abort`\
+`rm -fr .git/rebase-merge`\
+
+
