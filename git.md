@@ -4,4 +4,5 @@ This command will sync the local repository with the remote repository getting r
 `git reset --hard origin/<branch>`
 
 Check outcoming commits (that haven't been pushed) at your local branch
-git log @{u}..
+`git log @{u}..`
+
