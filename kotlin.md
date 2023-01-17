@@ -34,7 +34,6 @@ when (animal) {
 }
 ```
 
-
 Check for types wth capturing
 ```
 when (val animal = getSomePet()) {
@@ -87,4 +86,27 @@ when (val c = getSomeChar()) {
   c in 'a'..'z' -> println("it is lowercase letter")
 }
 ```
+
+# Extension functions
+Extension function extends the class. It is defined outside of the class but can be called as a regular member to this class
+
+
+*e.g. type String is a **receiver***
+```
+fun String.lastChar() = this.get(this.length -1)
+
+// getOrNull extension function sample for Array
+fun <T> Array<T>.getOrNull(index: Int) = 
+   if (inde in 0 until this.size) this[index] else null
+
+// isLetter extension function sample for Char
+fun Char.isLetter() = this in 'a'..'z' || this in 'A'..'Z'
+
+```
+
+Sample of using toRegx extenstion function
+```
+val regex = """\d{4}-\d{2}-\d{2}"""
+```
+
 
