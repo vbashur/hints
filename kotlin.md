@@ -106,7 +106,7 @@ fun Char.isLetter() = this in 'a'..'z' || this in 'A'..'Z'
 
 Sample of using toRegx extenstion function
 ```
-val regex = """\d{4}-\d{2}-\d{2}"""
+val regex = """\d{4}-\d{2}-\d{2}""".toRegex()
 ```
 
 
