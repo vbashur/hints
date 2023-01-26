@@ -22,6 +22,8 @@ Rebase feature branch (get the latest updates from master and get feature branch
 This will apply the commits from the master branch onto your feature branch, updating your feature branch to reflect the changes from the master branch.
 
 Once you have completed the rebase operation, you can push the updated feature branch to the remote repository using the git push command. This will update the feature branch on the remote repository with the changes you have made locally.
+If 'push' is not working (eg. "Updates were rejected because the tip of your current branch is behind") [then](https://sakhawat-ali.medium.com/git-resolving-conflict-while-git-rebase-33b70ddb528e)
+`git push -f origin feature`
 
 
 First `push` from a local branch to a remote branch that has not been set up\
