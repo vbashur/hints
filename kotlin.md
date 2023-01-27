@@ -164,8 +164,13 @@ mapByName["unknown"]?.age           // null
 mapByName.getValue("unknown").age   // NoSuchElementException
 ```
 
-## Function types
+### Function types
 
 `run { println("hey scuko") }` <- call lambda function
 
-
+### Member reference
+How to use function reference
+```
+fun isEven(i: Int): Boolean = i % 2 == 0
+val predicate = ::isEven
+```
