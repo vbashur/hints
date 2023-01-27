@@ -134,3 +134,32 @@ if (any is String) {
 // OR
 (any as? String)?.toUpperCase()   // if(any is String) any else null
 ```
+# Lambdas
+```
+list.any { it > 0 }  // 'it' denotes the argument if it's only one
+```
+
+If some lambda parameter is not used it could be omitted with *_*
+```
+map.mapValues { (_, value) -> "$value!" } 
+```
+
+## Common operations
+* map
+* any (all, none)
+* find (first / firstOrNull)
+* count
+* partition
+* groupBy
+* associateBy
+* associate // build the map based on a list, eg { 'a' + it to 10 * it }
+* zip //organize a couple of lists
+* flatten
+* flatMap
+
+
+### map[key] vs map.getValue(key)
+```
+mapByName["unknown"]?.age           // null
+mapByName.getValue("unknown").age   // NoSuchElementException
+```
