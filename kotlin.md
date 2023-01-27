@@ -163,3 +163,9 @@ map.mapValues { (_, value) -> "$value!" }
 mapByName["unknown"]?.age           // null
 mapByName.getValue("unknown").age   // NoSuchElementException
 ```
+
+## Function types
+
+`run { println("hey scuko") }` <- call lambda function
+
+
