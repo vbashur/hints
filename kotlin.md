@@ -109,4 +109,28 @@ Sample of using toRegx extenstion function
 val regex = """\d{4}-\d{2}-\d{2}""".toRegex()
 ```
 
+# Nullability
+How to understand nullable
+```
+val l = s?.length // if (s != null) s.length else null
+```
 
+How to use 'elvis' operator
+```
+val a: Int? = null 
+val c: Int = 2
+
+val s1 = (a ?: 0) + c // prints 2 
+```
+
+Not-null assertion (`!!`): throws NPE if for `foo!!` when `foo` is null
+
+
+# Safe cast
+```
+if (any is String) {
+  any.toUpperCase
+} 
+// OR
+(any as? String)?.toUpperCase()   // if(any is String) any else null
+```
