@@ -174,3 +174,18 @@ How to use function reference
 fun isEven(i: Int): Boolean = i % 2 == 0
 val predicate = ::isEven
 ```
+
+# Properties
+
+```
+class Person(val name: String, var age: Int) // === getName, getAge, setAge
+```
+Backing field might be absent 
+```
+class Rectangle(val height: Int, val width: Int) {
+  val isSquare: Boolean
+   get() {
+     return height == width
+   }
+}
+```
