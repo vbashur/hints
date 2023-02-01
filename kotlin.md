@@ -34,6 +34,8 @@ when (animal) {
 }
 ```
 
+
+
 Check for types wth capturing
 ```
 when (val animal = getSomePet()) {
@@ -189,3 +191,13 @@ class Rectangle(val height: Int, val width: Int) {
    }
 }
 ```
+
+### Lazy and lateinit properties
+```
+val lazyProp : String by lazy {
+  println("Kuku epta!")
+  "kuku"
+}
+```
+
+`lateinit var myData : SomeType` // can't be __val__ and can't be _nullable_
