@@ -204,11 +204,17 @@ val lazyProp : String by lazy {
 
 # OOP in Kotlin
 __final__ (used by default): cannot be overriden
+
 __open__: can be overriden
+
 __abstract__: must be overriden
+
 __override__: mandatory for cases when override be intention
+
 __internal__: visible in module only
+
 __protected__: visible for subclasses (not in package unlike java)
+
 
 One file could contain several classes and top-level declarations
 
