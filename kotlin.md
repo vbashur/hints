@@ -218,3 +218,46 @@ __protected__: visible for subclasses (not in package unlike java)
 
 One file could contain several classes and top-level declarations
 
+
+## Class modifiers
+__data__ modifier generates usefule methods _equals_, _hashCode_, _copy_, _toString_
+
+`set1 == set2` - calls equals
+`set1 === set2` - checks reference equality
+
+__sealed__ class modifier is allowed when we assured that we know our class hierarchy and we don't let this this class be modified anymore, i.e. we restrict class hierarchy
+
+
+static nested class is the __default__ behavior in kotlin, if youn need reference to outer class use __inner__ class modifier
+
+keyword __object__ is used to declare singleton classes
+
+To use the methods of the singleton class you call: `ClassName.INSTANCE.foo()`
+
+
+__obejct__ replaces Java's anonymous clases, e.g.
+```
+window.addListener(
+    object : MouseClick() {
+        override fun onClick(e: MouseEvent) { ... }
+    }
+)
+```
+
+__companion object__ - special object inside of a class (there is no _static_ methods in Kotlin, that's why companion objects)
+```
+class A {
+    companion object {
+        fun foo() = 1
+    }
+}
+...
+A.foo()
+```
+* companion object might implement an interface (`companion object : Factory<A>`)
+* companion object can be a receiver of extension function: `fun Person.Companion.fromJSON`
+
+
+
+
+
