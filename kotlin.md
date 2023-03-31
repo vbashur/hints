@@ -258,6 +258,32 @@ A.foo()
 * companion object can be a receiver of extension function: `fun Person.Companion.fromJSON`
 
 
+## Conventions
+
+`s1 == s2` // by default calls 'equals' under the hood and handles nulls
+
+__in__ convention
+```
+if (key in map) {}        // map.contaknsKey(key) under the hood
+if (element in list) {}
+
+if (s in "abc".."def") {} // 
+for (s in start..end) {}  // start.rangeTo(end)
+```
+
+# Useful libraby functions
+
+`run, let, takeIf, takeUnless, repeat`
+
+```
+// runs the block of code (lambda) and returns the last expression as the result
+val foo = run { 
+   println("Calculating foo...")
+      "foo"
+}
+```
+
+
 
 
 
