@@ -283,6 +283,46 @@ val foo = run {
 }
 ```
 
+__let__ allows to check the argument for being non-null, not only the receiver
+```
+  fun getEmail(): Email?
+  val email = getEmail()
+  if (email != null) sendEmailTo(email)
+  ..==..
+  email?.let { e -> sendEmailTo(e) }
+  getEmail()?.let { sendEmailTo(it) }
+```
+
+__takeif__ returns the receiver object if it satisfies the given predicate, otherwise returns null
+
+Example:
+```
+val number = 42
+number.takeIf { it > 10 } // 42
+...
+val number = 42
+number.takeIf { it > 70 } // null
+
+```
+
+__takeUnless__ returns the receiver object if it _does not_ satisfy the given predicate, otherwise returns null
+
+
+__repeat__ repeats an action for a given number of times
+
+```
+repeat(10) {
+  println("Welcome!")
+}
+```
+
+## Inline functions
+
+compiler substitutes a body of the function instead of calling it
+
+
+
+
 
 
 
