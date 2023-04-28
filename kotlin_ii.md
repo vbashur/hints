@@ -49,6 +49,41 @@ class Order(val orderAmount: Int) {
 
 }
 ```
+```
+// companion object usage example https://pl.kotl.in/Ffd6_Z7KC
+/**
+ * You can edit, run, and share this code.
+ * play.kotlinlang.org
+ */
+fun main() {
+    println("Hello, world!!!")        
+    val soupPrice: Double = 7.8
+    val pastaPrice: Double = 12.9
+    val orders = listOf<OrderItem>(OrderItem("soup", soupPrice), OrderItem("pasta", pastaPrice))
+    val taxAmount : Double = TaxCalculator.getTaxAmountForOrders(orders) 
+    println("Tax amount : $taxAmount")
+}
+
+class OrderItem (
+    val name : String,
+    val price : Double) {}
+
+
+class TaxCalculator {
+    companion object {
+        val taxPercentage : Double = 0.13
+        fun getTaxAmountForOrders(orderItems : List<OrderItem>) : Double {
+            var orderAmount : Double = 0.00
+            for (item in orderItems) {
+                val currentOrderTaxAmount : Double = item.price * taxPercentage
+                orderAmount += currentOrderTaxAmount
+            }
+            return orderAmount
+        }
+
+    }
+}
+```
 
 
 
