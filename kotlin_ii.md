@@ -85,5 +85,7 @@ class TaxCalculator {
 }
 ```
 
+### Extension functions
+If a class defines a member function with the same name as an extension function, the member function __always takes precedence__ over the extension function.
 
 
