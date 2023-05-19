@@ -23,7 +23,9 @@ http://localhost:29200/_cat/indices
 
 ## Print all the documents from the index
 
+```
 http://localhost:29200/webshop-plp-products-local/_search?pretty=true&q=*:*
+```
 
 
 
