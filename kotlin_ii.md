@@ -89,3 +89,22 @@ class TaxCalculator {
 If a class defines a member function with the same name as an extension function, the member function __always takes precedence__ over the extension function.
 
 
+### Collection processting
+
+##### fold 
+Very usefule if we want aggregate the elements of the collection
+
+```
+// `fold` implementation from Kotlin stdlib
+inline fun <T, R> Iterable<T>.fold(
+    initial: R,
+    operation: (acc: R, T) -> R
+): R {
+    var accumulator = initial
+    for (element in this) {
+        accumulator = operation(accumulator, element)
+    }
+    return accumulator
+}
+```
+
