@@ -27,5 +27,8 @@ http://localhost:29200/_cat/indices
 http://localhost:29200/webshop-plp-products-local/_search?pretty=true&q=*:*
 ```
 
-
+## Query for a particular document in ES
+```
+http://localhost:29200/webshop-plp-products-local/_doc/000001__01__de
+```
 
