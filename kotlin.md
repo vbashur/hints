@@ -320,7 +320,14 @@ repeat(10) {
 
 compiler substitutes a body of the function instead of calling it
 
+# Misc
 
+generate selfcontained jar file with kotlin app
+```
+kotlinc Main.kt -include-runtime -d hello.jar
+//and then
+java -jar hello.jar
+```
 
 
 
