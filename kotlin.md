@@ -320,6 +320,23 @@ repeat(10) {
 
 compiler substitutes a body of the function instead of calling it
 
+## Unlimited parameters in function
+
+__vararg__ - keyword for making function to accept unlimited number of parameters
+
+```
+fun printString(varagr strings: String) {
+  reallyPrintStrings(*strings)
+}
+
+fun reallyPrintStrings(vararg strings: String) {
+  for (string in strings) {
+    print(string)
+  }
+}
+
+```
+
 # Misc
 
 generate selfcontained jar file with kotlin app
