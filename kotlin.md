@@ -177,7 +177,7 @@ fun isEven(i: Int): Boolean = i % 2 == 0
 val predicate = ::isEven
 ```
 
-# Properties
+# Properties / Constructors
 
 ```
 class Person(val name: String, var age: Int) // === getName, getAge, setAge
@@ -191,6 +191,18 @@ class Rectangle(val height: Int, val width: Int) {
    }
 }
 ```
+How to define mutliple constructors to init various properties
+```
+class Person(var name: String, var age: Int) {
+   init {
+      name = name.toUppercase()
+   }
+   constructor(email: String): this("", 23) {
+
+   }
+}
+```
+
 
 ### Lazy and lateinit properties
 ```
