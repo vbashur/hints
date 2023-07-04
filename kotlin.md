@@ -202,6 +202,17 @@ class Person(var name: String, var age: Int) {
    }
 }
 ```
+### setter
+```
+class Person(var name: String, var age: Int) {
+   var socialId : String = ""
+   set (socId) {
+      if (!socId.startsWith("SN)) throw...
+      field = socId
+   }
+}
+
+```
 
 
 ### Lazy and lateinit properties
