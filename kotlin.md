@@ -225,6 +225,27 @@ val lazyProp : String by lazy {
 
 `lateinit var myData : SomeType` // can't be __val__ and can't be _nullable_
 
+# Enum
+
+Sample of enum with an abstract method
+```
+enum class Priority(val value: Int) {
+   MINOR(-1) {
+      override fun text(): String {
+         throw UnsupportedOperationException("not implemented in MINOR")
+      }
+   }
+
+   MAJOR(1) {
+      override fun text(): String {
+         throw UnsupportedOperationException("not implemented in MAJOR")
+      }
+   }
+
+   abstract fun text(): String
+}
+```
+
 # OOP in Kotlin
 __final__ (used by default): cannot be overriden
 
