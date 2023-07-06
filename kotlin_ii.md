@@ -1,9 +1,9 @@
 # Kotlin advanced topics
 _the notes taken from_ [Kotlin coursera classes](https://www.coursera.org/learn/advanced-programming-in-kotlin)
 
-### Object declaration
+# Object declaration
 
-#### Singleton
+## Singleton
 ```
 object Company { // no parenthesis on declaration
     
@@ -11,9 +11,9 @@ object Company { // no parenthesis on declaration
 
 ```
 
-#### Companion, nested and inner classes
+## Companion, nested and inner classes
 
-##### Companion object
+#### Companion object
 Companion objects are used in Kotlin to store static data or to provide static methods. Companion object is associated with a class. A class may have only one companion object.
 
 `companion` objects usually located at the bottom of the class - this is a code convention
@@ -26,7 +26,7 @@ class Contest {
 }
 
 ```
-##### nested vs inner
+#### nested vs inner
 Nested classes cannot access field of outer classes but inner classes can do it
 ```
 // NESTED
@@ -85,13 +85,13 @@ class TaxCalculator {
 }
 ```
 
-### Extension functions
+# Extension functions
 If a class defines a member function with the same name as an extension function, the member function __always takes precedence__ over the extension function.
 
 
-### Collection processting
+# Collection processing
 
-##### fold 
+## fold 
 Very usefule if we want aggregate the elements of the collection
 
 ```
