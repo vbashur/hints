@@ -90,8 +90,7 @@ when (val c = getSomeChar()) {
 ```
 
 # Extension functions
-Extension function extends the class. It is defined outside of the class but can be called as a regular member to this class
-
+* Extension function extends the class. It is defined outside of the class but can be called as a regular member to this class
 
 *e.g. type String is a **receiver***
 ```
@@ -110,6 +109,13 @@ Sample of using toRegx extenstion function
 ```
 val regex = """\d{4}-\d{2}-\d{2}""".toRegex()
 ```
+* Extension functions are statically resolved: if we have ext functions with identical signature for base and derived classes we'll get the function called that bound to the declared type of the target object, e.g.
+```
+val obj : Base = Derived()
+obj.callExtension() // will be called extension function declared at Base class
+```
+
+* If a class defines a member function with the same name as an extension function, the member function __always takes precedence__ over the extension function.
 
 # Nullability
 How to understand nullable
@@ -495,9 +501,6 @@ class TaxCalculator {
     }
 }
 ```
-
-# Extension functions
-If a class defines a member function with the same name as an extension function, the member function __always takes precedence__ over the extension function.
 
 
 # Collection processing
