@@ -146,6 +146,15 @@ If some lambda parameter is not used it could be omitted with *_*
 map.mapValues { (_, value) -> "$value!" } 
 ```
 
+## Closures
+_A closure is a function that has access to variables that are defined in the outer scope_
+
+Example
+```
+   val number = 10
+   unaryOperation(20, { x -> x * nunmber }) // number is captured by closure
+```
+
 ## Common operations
 * map
 * any (all, none)
