@@ -393,6 +393,13 @@ fun reallyPrintStrings(vararg strings: String) {
 
 ```
 
+## Anonymous functions
+```
+   fun unaryOperation(x: Int, op: (Int) -> Int)
+   ...
+   unaryOperation(3, fun(x: Int): Int { return x * x })
+```
+
 # Kotlin advanced topics
 _the notes taken from_ [Kotlin coursera classes](https://www.coursera.org/learn/advanced-programming-in-kotlin)
 
