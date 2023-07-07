@@ -177,7 +177,7 @@ fun isEven(i: Int): Boolean = i % 2 == 0
 val predicate = ::isEven
 ```
 
-# Properties / Constructors
+# Properties / Constructors / Constants
 
 ```
 class Person(val name: String, var age: Int) // === getName, getAge, setAge
@@ -224,6 +224,18 @@ val lazyProp : String by lazy {
 ```
 
 `lateinit var myData : SomeType` // can't be __val__ and can't be _nullable_
+
+### Constants
+constants can be declared within __object__ class
+```
+object Copyright {
+   val author = "Mark Twain"
+}
+```
+or like separate variable
+```
+val author = "Mark Twain"
+```
 
 # Enum
 
