@@ -522,6 +522,18 @@ inline fun <T, R> Iterable<T>.fold(
 }
 ```
 
+## map vs flatMap
+how we'd describe the difference:
+```map
+[a, b, c] f(x) => [f(a), f(b), f(c)]
+```
+
+```flatMap
+[[a, b], [c, d]] f(x) => [f(a), f(b), f(c)]
+```
+
+
+
 
 
 # Misc
