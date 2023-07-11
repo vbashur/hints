@@ -344,7 +344,7 @@ for (s in start..end) {}  // start.rangeTo(end)
 
 # Useful libraby functions
 
-`run, let, takeIf, takeUnless, repeat`
+`run, let, takeIf, takeUnless, repeat, with`
 
 ```
 // runs the block of code (lambda) and returns the last expression as the result
@@ -384,6 +384,14 @@ __repeat__ repeats an action for a given number of times
 ```
 repeat(10) {
   println("Welcome!")
+}
+```
+
+__with__ calls the specified function with the given receiver
+
+```
+with (file) {
+   println(isAbsolute) // we can refernece the methods/properties without using the object as it's specified at 'with'
 }
 ```
 
