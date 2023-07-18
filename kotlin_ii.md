@@ -14,3 +14,25 @@ infix fun String.shouldBeEqualTo(value: String) = this ==value
 "Hello" shouldBeEqualTo "Hello"
 ```
 
+### local return 
+To make particular inner function return you need to specify what exactly the return belongs to with __@__
+
+```
+fun containingFunction() {
+  val nums = 1..100
+  numbers.forEach {
+    retrun@forEach      // without @forEach it would make a return from containingFunction
+  }
+}
+```
+
+The same but with custom label
+```
+fun containingFunction() {
+  val nums = 1..100
+  numbers.forEach myLabel@ {
+    retrun@myLabel      // without @myLabel it would make a return from containingFunction
+  }
+}
+```
+
