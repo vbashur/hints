@@ -36,3 +36,13 @@ fun containingFunction() {
 }
 ```
 
+### operator overloading
+```
+data class Time(val hours: Int, val minutes: Int) {
+  operator fun plus(time: Time): Time {
+    //...
+  }
+}
+
+val newTime = Time(10, 40) + Time(3, 55)
+```
