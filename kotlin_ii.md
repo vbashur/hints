@@ -46,3 +46,43 @@ data class Time(val hours: Int, val minutes: Int) {
 
 val newTime = Time(10, 40) + Time(3, 55)
 ```
+
+
+### lambda extensions
+Given that we have
+`class Request(var query: String)`
+
+`class RouteHandler(val request: Request, val response: Response)`
+
+
+we can introduce the following lambda extension
+
+`fun routeHandler(f: RouteHandler.() -> Unit): RouteHandler.() -> Unit = f` _// it takes an extension function of class RouteHandler as a parameter_
+
+
+It helps us to write something like:
+```
+routeHandler {
+  request.query = ...
+}
+```
+
+If we add andother lambda extension
+`class Request(var query: Query)`
+
+`class Query(var body: String)`
+
+`fun query(query: Query.() -> Unit) {}`
+
+
+then we can do the following
+```
+routeHandler {
+  request {
+    query {
+      body = "{ }"
+    }
+  }
+}
+```
+
