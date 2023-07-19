@@ -1,5 +1,46 @@
 Hints for Kotlin programming language
 
+- [Operators](#operators)
+  * [Conditional](#conditional)
+    + [when](#when)
+  * [Loop](#loop)
+    + [for](#for)
+  * ['in' check ranges](#-in--check-ranges)
+- [Extension functions](#extension-functions)
+- [Nullability](#nullability)
+- [Safe cast](#safe-cast)
+- [Lambdas](#lambdas)
+  * [Closures](#closures)
+  * [Common operations](#common-operations)
+    + [map[key] vs map.getValue(key)](#map-key--vs-mapgetvalue-key-)
+    + [Function types](#function-types)
+    + [Member reference](#member-reference)
+- [Properties / Constructors / Constants](#properties---constructors---constants)
+    + [setter](#setter)
+    + [Lazy and lateinit properties](#lazy-and-lateinit-properties)
+    + [Constants](#constants)
+- [Enum](#enum)
+- [OOP in Kotlin](#oop-in-kotlin)
+  * [Class modifiers](#class-modifiers)
+  * [Conventions](#conventions)
+- [Useful libraby functions](#useful-libraby-functions)
+  * [Inline functions](#inline-functions)
+  * [Unlimited parameters in function](#unlimited-parameters-in-function)
+  * [Anonymous functions](#anonymous-functions)
+- [Kotlin advanced topics](#kotlin-advanced-topics)
+- [Object declaration](#object-declaration)
+  * [Singleton](#singleton)
+  * [Companion, nested and inner classes](#companion--nested-and-inner-classes)
+      - [Companion object](#companion-object)
+      - [nested vs inner](#nested-vs-inner)
+- [Collection processing](#collection-processing)
+  * [fold](#fold)
+  * [map vs flatMap](#map-vs-flatmap)
+- [Misc](#misc)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 
 # Operators
 
@@ -327,6 +368,7 @@ A.foo()
 ```
 * companion object might implement an interface (`companion object : Factory<A>`)
 * companion object can be a receiver of extension function: `fun Person.Companion.fromJSON`
+* companion object could only be one per a class
 
 
 ## Conventions
@@ -451,29 +493,7 @@ class Contest {
 }
 
 ```
-#### nested vs inner
-Nested classes cannot access field of outer classes but inner classes can do it
-```
-// NESTED
-class Order { 
-    val orderId = 1 
 
-    class DeliveryDetails {  // nested class
-        val deliveryFeeInDollars = 10 
-    } 
-
-} 
-```
-```
-// INNER
-class Order(val orderAmount: Int) { 
-
-    inner class TaxDetails { 
-        val taxAmount = 0.05 * orderAmount 
-    } 
-
-}
-```
 ```
 // companion object usage example https://pl.kotl.in/Ffd6_Z7KC
 /**
@@ -510,6 +530,33 @@ class TaxCalculator {
 }
 ```
 
+
+#### nested vs inner
+Nested classes cannot access field of outer classes but inner classes can do it
+```
+// NESTED
+class Order { 
+    val orderId = 1 
+
+    class DeliveryDetails {  // nested class
+        val deliveryFeeInDollars = 10 
+    } 
+
+} 
+```
+To initialize an obejct of nested class one writes `Order.DeliveryDetails()`
+
+```
+// INNER
+class Order(val orderAmount: Int) { 
+
+    inner class TaxDetails { 
+        val taxAmount = 0.05 * orderAmount 
+    } 
+
+}
+```
+To initialize an obejct of inner class we need an instance of the outer classs, e.g. `Order().TaxDetails()`
 
 # Collection processing
 
