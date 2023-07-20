@@ -90,7 +90,7 @@ routeHandler {
 
 ### sealed classes
 
-__sealed__ keyword for class restricts the inheritance of the class to its nested classes, everything that is the part of _sealed_ class hierarchy has to be defined inside the class
+__sealed__ keyword for class restricts the inheritance of the class to its nested classes, everything that is the part of _sealed_ class hierarchy has to be defined inside the class or inside of the same file
 
 ```
 sealed class PageResult {
