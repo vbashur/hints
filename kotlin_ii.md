@@ -88,6 +88,9 @@ routeHandler {
 
 ## Classes advanced
 
+### lateinit
+_lateinit_ modifier allows for late initialisation after constructor (only on _var_)
+
 ### sealed classes
 
 __sealed__ keyword for class restricts the inheritance of the class to its nested classes, everything that is the part of _sealed_ class hierarchy has to be defined inside the class or inside of the same file
@@ -105,4 +108,9 @@ fun main(args: Array<String>) {
   }
 }
 ```
+
+### type alias
+`typealias Name = String` _// declaring alias to type String_
+
+
 
