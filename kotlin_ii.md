@@ -1,7 +1,7 @@
 # Kotlin advanced topics
 _the notes taken from_ [advanced Kotlin programming](https://www.oreilly.com/videos/advanced-kotlin-programming/9781491964149/)
 
-# Functions advanced
+## Functions advanced
 
 ### Infix functions
 
@@ -82,6 +82,26 @@ routeHandler {
     query {
       body = "{ }"
     }
+  }
+}
+```
+
+## Classes advanced
+
+### sealed classes
+
+__sealed__ keyword for class restricts the inheritance of the class to its nested classes, everything that is the part of _sealed_ class hierarchy has to be defined inside the class
+
+```
+sealed class PageResult {
+  class Success(val content: String)
+  class Error(val code: Int)
+}
+
+fun main(args: Array<String>) {
+  when (pageResult) {
+    is PageResult.Success -> print("OK")
+    is PageResult.Error -> print("KO")
   }
 }
 ```
