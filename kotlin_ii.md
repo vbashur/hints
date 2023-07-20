@@ -113,4 +113,35 @@ fun main(args: Array<String>) {
 `typealias Name = String` _// declaring alias to type String_
 
 
+## Delegation
 
+### observable delegate (property change detection)
+this delegate roughly speaking looks as follows:
+`observable(initialValue, onChange(KProperty<*>, T, T) -> Unit)`
+it lets us to identify property change
+```
+data class Employee(val name: String) {
+  var department: String by Delegates.observable("", {property, oldValue, newValue -> println("$property value was changed from $oldValue to $newValue")})
+}
+```
+
+### vetoable delegate (property change restriction)
+this delegate roughly speaking looks as follows:
+
+it lets us to restrict property change
+```
+//the employee could only change the department to 'Analytics' or 'Supply', otherwise will be set to default 'IT'
+data class Employee(val name: String) {
+  var department: String by Delegates.vetoable("IT") {property, oldValue, newValue -> newValue.equals("Analytics") || newValue.equals("Supply")}
+}
+```
+
+### extension properties
+
+```
+val String.hasAmpersand: Boolean
+  get() = this.contains("&")
+...
+println("Hello".hasAmpersand()) // returns false
+
+```
