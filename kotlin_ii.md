@@ -145,3 +145,23 @@ val String.hasAmpersand: Boolean
 println("Hello".hasAmpersand()) // returns false
 
 ```
+
+## Async programming
+standard approaches
+* threading
+* async/await pattern  //_default C# approach_
+* futures
+* promises
+* reactive extensions
+* callbacks
+
+
+Kotlin is offering __coroutines__
+
+__Coroutines__ are light-weight threads that allow you to write asynchronous non-blocking code. Kotlin provides the kotlinx. coroutines library with a number of high-level coroutine-enabled primitives
+
+__building blocks__
+* coroutine builders - function that defines a controller, taking coroutine as a block of code
+* controllers - defines suspension points, how to return values are processed, exceptions are handled and all in general the coroutines behaviour
+* suspension functions - specially marked functions where suspension points occur
+
