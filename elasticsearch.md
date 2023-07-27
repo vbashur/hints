@@ -32,3 +32,24 @@ http://localhost:29200/webshop-plp-products-local/_search?pretty=true&q=*:*
 http://localhost:29200/webshop-plp-products-local/_doc/000001__01__de
 ```
 
+## Filtering
+Show the documents with non-empty tag
+```
+curl -X POST -H 'Content-Type: application/json' -i 'http://[host]:[port]/[index]/_search' --data '{
+  "query":{
+    "bool":{
+      "must":[
+        {
+          "exists":{
+            "field":"[field_name]"
+          }
+        }
+      ],      
+      "must_not": [
+         {"term": {"[field_name]": ""}}
+      ]
+    }
+  }
+}'
+```
+
