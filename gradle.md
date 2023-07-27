@@ -18,6 +18,11 @@ List dependencies
 ./gradlew :api:dependencies
 ```
 
+Why is the dependency part of tree
+```
+./gradlew dependencyInsight
+```
+
 ## gradle wrapper
 The Wrapper standardizes a Gradle version compatible with the build, downloads the distribution for it and uses it to execute the build.
 
@@ -72,18 +77,6 @@ task createZip(type: Zip) {
 #### tasks structure
 Gradle builds Directed Acyclic Graph (DAG) from the tasks
 
-
-### gralde plugins
-* script plugin - split logic and make it more maintainable
-* binary plugin - implemented as classes; bundled as JAR files
-
-### domain objects
-Project (org.gradle.api.project) - represents a software component and provides API access to object hierarchy
-Task (org.gradle.api.Task) - represents unit of work with potential dependencies
-Action (org.gradle.api.Action) - actual work performed during execution phase
-Plugin (org.gradle.api.plugin) - provides reusable logic
-
-
 Example of the custom task that creates .tgz file with renamed txt files:
 ```
 apply plugin: 'base'
@@ -105,4 +98,20 @@ task createArchive {
 }
 
 ```
+
+### gralde plugins
+* script plugin - split logic and make it more maintainable
+* binary plugin - implemented as classes; bundled as JAR files
+
+### domain objects
+Project (org.gradle.api.project) - represents a software component and provides API access to object hierarchy
+
+Task (org.gradle.api.Task) - represents unit of work with potential dependencies
+
+Action (org.gradle.api.Action) - actual work performed during execution phase
+
+Plugin (org.gradle.api.plugin) - provides reusable logic
+
+
+
 
