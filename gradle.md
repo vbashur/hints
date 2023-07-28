@@ -115,7 +115,8 @@ Plugin (org.gradle.api.plugin) - provides reusable logic
 ### configuration
 configuration defines a scope where a library is available, 
 
-`testImplementation' for  example we need test library available at compile and run time, e.g. jupiter-api
+`testImplementation` for  example we need test library available at compile and run time, e.g. jupiter-api
+
 `testRuntime' for  example we need test library available at run time only, e.g jupiter-engine
 
 
