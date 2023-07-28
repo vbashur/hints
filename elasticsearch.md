@@ -72,3 +72,8 @@ PUT http://[host]:[port]/[index]/_mapping
 }
 ```
 
+bulk update via curl from file.json
+```
+~/curlw -XPUT "[host]:[port]/_bulk?pretty" --data-binary @file.json
+```
+
