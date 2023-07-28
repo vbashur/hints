@@ -53,3 +53,22 @@ curl -X POST -H 'Content-Type: application/json' -i 'http://[host]:[port]/[index
 }'
 ```
 
+## Basic operations over documents
+add document
+```
+PUT /[index]/_doc/[document_id]
+{ ... }
+```
+
+### update mapping
+```
+PUT http://[host]:[port]/[index]/_mapping
+{
+  "properties": {
+    "[new_property_name]": {
+      "type": "keyword"
+    }
+  }
+}
+```
+
