@@ -60,6 +60,11 @@ PUT /[index]/_doc/[document_id]
 { ... }
 ```
 
+delete document
+```
+DELETE /[index]/_doc/[document_id]
+```
+
 ### update mapping
 ```
 PUT http://[host]:[port]/[index]/_mapping
