@@ -53,6 +53,11 @@ curl -X POST -H 'Content-Type: application/json' -i 'http://[host]:[port]/[index
 }'
 ```
 
+## Quick search
+```
+GET /[index]/_search?q=[search_term]
+```
+
 ## Basic operations over documents
 add document
 ```
