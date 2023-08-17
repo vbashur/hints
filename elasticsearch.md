@@ -65,6 +65,11 @@ PUT /[index]/_doc/[document_id]
 { ... }
 ```
 
+update document
+```
+POST /[index]/_update/[document_id]
+```
+
 delete document
 ```
 DELETE /[index]/_doc/[document_id]
