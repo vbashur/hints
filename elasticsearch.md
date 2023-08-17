@@ -53,10 +53,17 @@ curl -X POST -H 'Content-Type: application/json' -i 'http://[host]:[port]/[index
 }'
 ```
 
-## Quick search
+## Search operations
+
+#### URI search - query lite
 ```
 GET /[index]/_search?q=[search_term]
 ```
+e.g. (be aware of url encoding)
+`/movies/_search?q=title:star`
+`/movies/_search?q=+year:>2010+title:starwars`
+disadvantages: security (access to users who can overload ES), high risk of mistake on typo, it's only appropriate for quick 'curl tests'
+
 
 ## Basic operations over documents
 add document
