@@ -7,6 +7,8 @@ Check outcoming commits (that haven't been pushed) at your local branch\
 `git log @{u}..`
 
 
+### rebase
+
 Whenever 'rebase' doesn't go smooth\
 `git rebase --abort`\
 `rm -fr .git/rebase-merge`
@@ -29,3 +31,5 @@ If 'push' is not working (eg. "Updates were rejected because the tip of your cur
 First `push` from a local branch to a remote branch that has not been set up\
 `` git push --set-upstream origin `git branch --show-current` ``
 
+### undo file change
+`git checkout -- <path_to_file>`
