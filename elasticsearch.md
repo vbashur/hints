@@ -113,6 +113,21 @@ curl -X GET 'http://[host]:[port]/[index]/_search?pretty' --data '{
 * every result must be retrieved, collected, and sorted
 One can limit the number of results with URL parameter `limit=X`, where X is an upper bound limit
 
+#### prefix/wildcard querying
+```
+# prefix
+curl -X GET 'http://[host]:[port]/[index]/_search?pretty' --data '{
+  "query":{ "prefix":{ "year": "20"}}
+}'
+
+# wildcard
+curl -X GET 'http://[host]:[port]/[index]/_search?pretty' --data '{
+  "query":{ "wildcard":{ "year": "20*"}}
+}'
+
+```
+
+
 #### URI search - query lite
 ```
 GET /[index]/_search?q=[search_term]
