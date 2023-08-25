@@ -3,7 +3,7 @@
 # Various operations over elastic search
 
 
-## Analyse searh term and synonyms
+## Analyse search term and synonyms
 
 Explain what's hapening with search term
 
@@ -54,6 +54,52 @@ curl -X POST -H 'Content-Type: application/json' -i 'http://[host]:[port]/[index
 ```
 
 ## Search operations
+**Filters** - ask yes/no question of your data (use filters when you can - they are faster and cacheable)
+**Queries** - return data in terms of relevance
+
+#### search by some field
+examples
+```
+# query with QUERY, works like a bool filter, but results are scored by relevance
+curl -X GET 'http://[host]:[port]/[index]/_search?pretty' --data '{
+  "query":{
+    "match":{    #other options would be 'match_all' or 'multi_match'
+      "title": "star"
+    }
+  }
+}'
+
+# query with FILTER
+curl -X GET 'http://[host]:[port]/[index]/_search?pretty' --data '{
+  "query":{
+    "bool":{
+      "must": {"term": {"title": "star"}}
+      "filter" : {"range": {"year": {"gte": 2010}}}
+    }
+  }
+}'
+```
+some samples of useful filters
+```
+# find documents where a field exists
+{"exists": {"field": "tags"}}
+
+# find documents where a field is missing
+{"missing": {"field": "tags"}}
+
+```
+
+#### search by phrase
+```
+curl -X GET 'http://[host]:[port]/[index]/_search?pretty' --data '{
+  "query":{
+    "match_phrase":{
+      "title": {"query": "star wars", "slop": 1 } # slop value relaxes the search to get for example 'star beoynd wars' in output
+     }
+  }
+}'
+# for 'slop' 100 might get any document with 'star' and 'wars' with 100 terms to each other, the documents where these phrases closer get higher relevance
+```
 
 #### URI search - query lite
 ```
