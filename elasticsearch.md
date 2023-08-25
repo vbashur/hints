@@ -101,6 +101,18 @@ curl -X GET 'http://[host]:[port]/[index]/_search?pretty' --data '{
 # for 'slop' 100 might get any document with 'star' and 'wars' with 100 terms to each other, the documents where these phrases closer get higher relevance
 ```
 
+#### pagination
+```
+curl -X GET 'http://[host]:[port]/[index]/_search?pretty' --data '{
+  "from":0,
+  "size":2,
+  "query":{ "match":{ "title": "star"}}
+}'
+```
+* deep pagination can kill performance
+* every result must be retrieved, collected, and sorted
+One can limit the number of results with URL parameter `limit=X`, where X is an upper bound limit
+
 #### URI search - query lite
 ```
 GET /[index]/_search?q=[search_term]
@@ -110,6 +122,15 @@ e.g. (be aware of url encoding)
 `/movies/_search?q=+year:>2010+title:starwars`
 disadvantages: security (access to users who can overload ES), high risk of mistake on typo, it's only appropriate for quick 'curl tests'
 
+
+### sorting
+#### URI search sorting
+```
+GET /[index]/_search?q=[search_term]&sort=year&pretty
+```
+* a string field that is **analyzed** for full text search can't be used to sort documents, because it exists in the inverted index as individual terms, not as the entire string
+* to overcome the restriction above we'd need to define the target field with "raw" tag at the mapping, it'll give us unanalyzed version of the string for sorting
+* within 'raw' mapping the search would be `/_search?sort=title.raw&pretty`
 
 ## Basic operations over documents
 add document
