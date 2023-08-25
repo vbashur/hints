@@ -137,6 +137,32 @@ e.g. (be aware of url encoding)
 `/movies/_search?q=+year:>2010+title:starwars`
 disadvantages: security (access to users who can overload ES), high risk of mistake on typo, it's only appropriate for quick 'curl tests'
 
+#### autocompletion
+[Script](http://media.sundog-soft.com/es/sayt.txt) to check autocompletion for queried term
+```
+while true
+do
+ IFS= read -rsn1 char
+ INPUT=$INPUT$char
+ echo $INPUT
+ curl --silent --request GET 'http://localhost:9200/autocomplete/_search' \
+ --data-raw '{
+     "size": 5,
+     "query": {
+         "multi_match": {
+             "query": "'"$INPUT"'",
+             "type": "bool_prefix",
+             "fields": [
+                 "title",
+                 "title._2gram",
+                 "title._3gram"
+             ]
+         }
+     }
+ }' | jq .hits.hits[]._source.title | grep -i "$INPUT"
+done
+```
+
 
 ### sorting
 #### URI search sorting
