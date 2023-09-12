@@ -11,9 +11,15 @@ kubectl get all -A
 
 # terms
 
-> k8s is a cloud native computig platform that solves the challenge tol have the application succesfully deployed and manaeged on a cloud infrastructure. It treats the applications as containers.
+> k8s is a cloud native computig platform that solves the challenge to have the application succesfully deployed and managed on a cloud infrastructure. It treats the applications as containers, particulary pods.
 
-**configmap** - how to deal with the configuration
+> pods - the basic unit in Kubernetes, represents one or more containers that share common resources
+
+> deployments- the application itself, standard entity that is rolled out with Kubernetes
+
+Do **NOT** run standalone Pods, run deployments only
+
+**configmap** - how to deal with storing configuration and other specific parameters in a cloud environment
 
 **ingress** - how to access
 
