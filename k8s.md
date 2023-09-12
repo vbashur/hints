@@ -32,7 +32,15 @@ CKAD - certification for developers (begin), minikube suits for self-preparation
 
 `minikube status` - check the minikube status
 
+`minikube ssh` - go with ssh into cluster network
+
+`minikube ip` - get the ip address of minikube
+
 `minikube dashboard` - launch minikube dashboard
+
+`minikube addons list` - list minikube addons
+
+`minikube addons enable ingress` - enable minikube addons (e.g. ingresss)
 
 `kubectl run appone --image=nginx` - launch the simple app
 
@@ -48,7 +56,7 @@ CKAD - certification for developers (begin), minikube suits for self-preparation
 
 `kubectl api-resources` -  print some comprehensive help about _resources_ configuration
 
-`kubectl get all --selector app=apptwo` - get the information about the particular pod 
+`kubectl get all --selector app=apptwo -o wide` - get the information about the particular pod 
 
 `kubectl get deploy apptwo -o yaml | less` - get the info about the pod in yml format
 
@@ -60,9 +68,31 @@ CKAD - certification for developers (begin), minikube suits for self-preparation
 
 `kubectl set env deploy/mymariadb MARIADB_ROOT_PASSWORD=password` - set the env variable to the pod
 
+`kubectl scale deploy nginxsvc --replicas=3` - scale the pod 
+
+`kubectl expose deploy nginxsvc --port=80` - expose the port for the deploy
+
 # k8s resources
 **pod** - minimal entity managed by k8s, pod starts from containers and can have some volumes
 **deployment** adds scalability and updates to pods, within `--image=nginx --replicas=3` args we added three pods (that are named 'replicaset' in total)
+
+# k8s networking
+sevice resource - represents on a cluster network which pod is accessible. Serive provides a 'cluster IP' and 'Node port' 
+node port - exposes port 
+ingress - k8s integrated http/https proxy
+
+`kubectl describe svc nginxsvc` - show the service information ('nginxsvc' is a deploy name here)
+
+`kubectl get endpoints` - show all endpoints
+
+ `kubectl edit svc nginxsvc` - edit the service information ('nginxsvc' is a deploy name here)
+
+## ingress
+`kubectl create ingress simple --rule="foo.com/bar=svc1:8080,tls=my-cert"` - create ingress with a rule
+
+`kubectl  create ingress nginxsvc --rule "foo.com/=nginxsvc:80"` - resolve foo.com to nginxsvc:80
+
+`kubectl describe ing nginxsvc` - check the status of ingress for a service
 
 
 
