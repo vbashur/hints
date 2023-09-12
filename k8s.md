@@ -28,7 +28,8 @@ kubectl get all -A
 CKAD - certification for developers (begin), minikube suits for self-preparations
 
 # basic commands
-`kubectl get all -A` - get pods running
+
+## minikube
 
 `minikube status` - check the minikube status
 
@@ -41,6 +42,10 @@ CKAD - certification for developers (begin), minikube suits for self-preparation
 `minikube addons list` - list minikube addons
 
 `minikube addons enable ingress` - enable minikube addons (e.g. ingresss)
+
+## kubectl
+
+`kubectl get all -A` - get pods running
 
 `kubectl run appone --image=nginx` - launch the simple app
 
