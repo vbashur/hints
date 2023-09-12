@@ -77,6 +77,8 @@ CKAD - certification for developers (begin), minikube suits for self-preparation
 
 `kubectl expose deploy nginxsvc --port=80` - expose the port for the deploy
 
+`kubectl delete all --all` - remove all k8s resources in default namespace
+
 # k8s resources
 **pod** - minimal entity managed by k8s, pod starts from containers and can have some volumes
 **deployment** adds scalability and updates to pods, within `--image=nginx --replicas=3` args we added three pods (that are named 'replicaset' in total)
@@ -98,6 +100,13 @@ ingress - k8s integrated http/https proxy
 `kubectl  create ingress nginxsvc --rule "foo.com/=nginxsvc:80"` - resolve foo.com to nginxsvc:80
 
 `kubectl describe ing nginxsvc` - check the status of ingress for a service
+
+## volumes
+pvc - persistent volume
+storage provisioner - application that works with 'storage class' resources, storage class allocates persistent volume
+
+config map - special resource that you store in k8s that is used by your environment where you want to have your application
+
 
 
 
