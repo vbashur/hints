@@ -55,7 +55,14 @@ curl -X POST -H 'Content-Type: application/json' -i 'http://[host]:[port]/[index
 
 ## Search operations
 **Filters** - ask yes/no question of your data (use filters when you can - they are faster and cacheable)
+
+In a filter context, a _query clause_ answers the question “Does this document match this query clause?” The answer is a simple Yes or No — no scores are calculated
+
 **Queries** - return data in terms of relevance
+
+In the query context, a _query clause_ answers the question “How well does this document match this query clause?” Besides deciding whether or not the document matches, the query clause also calculates a relevance score in the `_score` metadata field
+
+[Diff between query and filter with samples](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-filter-context.html)
 
 #### search by some field
 examples
@@ -207,3 +214,22 @@ bulk update via curl from file.json
 ~/curlw -XPUT "[host]:[port]/_bulk?pretty" --data-binary @file.json
 ```
 
+# Aggregations
+
+Sample: get the list of countries encountered for particular query
+POST `http://[host]:[port]/[index]/_search?size=0` beware **size=0** at the end to reduce results
+```
+{
+ "query": {
+    "match": { "colorName" : "Rot" }
+  },
+  "aggs": {
+    "countries_meet": {
+      "significant_terms": {
+        "field": "countries",
+        "exclude": [ "at", "be", "de", "lv" ]
+      }
+    }
+  }
+}
+```
