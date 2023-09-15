@@ -233,3 +233,67 @@ POST `http://[host]:[port]/[index]/_search?size=0` beware **size=0** at the end 
   }
 }
 ```
+#### histograms
+Sample: get the list of available prices with the dedicated interval
+```
+POST `http://[host]:[port]/[index]/_search?size=0` beware **size=0** at the end to reduce results
+{
+ "query": {
+    "match": { "colorName" : "Rot" }
+  },
+  "aggs": {
+    "prices": {
+      "histogram": {
+        "field": "price_eur",
+        "interval": 10.0
+      }
+    }
+  }
+}
+```
+
+#### timeseries
+Sample: track by hours some action or since when the product has been product 
+```
+POST `http://[host]:[port]/[index]/_search?size=0`
+{
+ "query": {
+    "match": { "colorName" : "Rot" }
+  },
+  "aggs": {
+    "timestamp": {
+      "date_histogram": {
+        "field": "@online_since",
+        "calendar_interval": "hour"
+      }
+    }
+  }
+}
+```
+
+
+#### nested aggregations
+Sample: get the avegarge amount of products on stock for the given price
+```
+POST `http://[host]:[port]/[index]/_search?size=0`
+{
+ "query": {
+    "match": { "colorName" : "Rot" }
+  },
+  "aggs": {
+    "prices": {
+      "terms" : {
+         "field": "price_eur",
+      },
+      "aggs": {
+         "avg_stock": {
+            "avg" : {
+              "field": "stock"
+            }      
+         }
+       }      
+    }
+  }
+}
+```
+
