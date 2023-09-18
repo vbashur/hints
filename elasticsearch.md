@@ -16,6 +16,13 @@ Explain what's hapening with search term
 
 }
 ```
+
+## Bulk insert data
+
+Sample
+
+`curl -H "Content-Type: application/json" -XPUT '127.0.0.1:9200/shakespeare/_bulk' --data-binary @shakespeare_8.0.json`
+
 ## Print all the indices
 ```
 http://localhost:29200/_cat/indices
