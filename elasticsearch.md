@@ -324,4 +324,13 @@ PUT `http://[host]:[port]/[new_index_name]
 ```
 `number_of_replicas` defines number of replicas per shard, so in the sample above we are getting 30 shards in total: 10 primary + 2*10 replicas
 
+Index lifecycle policies define states of the index: hot, warm, cold, frozen, delete - those policies are relevant to a frequency of index update
+
+we can set those policies based on the size of the index, e.g. after reaching 5 Gb capacity index is marked as 'delete'
+
+
+
+
+
+
 
