@@ -304,3 +304,24 @@ POST `http://[host]:[port]/[index]/_search?size=0`
 }
 ```
 
+# Operations on shards and indices
+Documents are hashed to a particular **shard**
+
+Each shard may be a differnet **node** in a **cluster**
+
+Every shard is a self-contained Lucene index of its own. You can't add more shards later without re-indexing
+
+Create a new index
+
+```
+PUT `http://[host]:[port]/[new_index_name]
+{
+ "settings": {
+    "number_of_shards": 10,
+    "number_of_replicas": 2
+  }
+}
+```
+`number_of_replicas` defines number of replicas per shard, so in the sample above we are getting 30 shards in total: 10 primary + 2*10 replicas
+
+
