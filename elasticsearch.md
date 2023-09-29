@@ -259,6 +259,29 @@ POST `http://[host]:[port]/[index]/_search?size=0` beware **size=0** at the end 
 }
 ```
 
+Sample: date histogram, get the monthly documents starting from 1.01.2023
+```
+{
+  "query": {
+    "range": {
+      "onlineTS": {
+        "gte": 1672531200000
+      }
+    }
+  }, 
+   
+  "aggs": {
+    "colors": {
+      "date_histogram": {
+         "field": "onlineTS",
+         "calendar_interval": "month"
+         
+      }
+    }
+  }
+}
+```
+
 #### timeseries
 Sample: track by hours some action or since when the product has been product 
 ```
