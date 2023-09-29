@@ -333,7 +333,15 @@ Get the status of the cluster
 GET http://[host]:[port]/_cluster/health
 ```
 
+Get the shards info
+```
+GET http://[host]:[port]/_cat/shards?v
+```
 
+Get the cluster allocation info
+```
+GET http://[host]:[port]/_cluster/allocation/explain?pretty
+```
 
 
 
