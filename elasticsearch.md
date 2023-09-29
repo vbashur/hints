@@ -343,6 +343,23 @@ Get the cluster allocation info
 GET http://[host]:[port]/_cluster/allocation/explain?pretty
 ```
 
+### settings of ES indices
+* Dynamic - can be changed after index creation
+  ** number of replicas
+  ** refresh interval
+  ** blocks - disabling wirtability/readability of the index
+  ** _pipeline - selecting preprocessing pipeline applied to all documents
+  
+* Static - cannot be changed after index creation
+  ** number of shards - the primary shards
+  ** codec - compression scheme of the data
+
+  There are two API to configure the number of shards
+  * split api - splits the number of shards to an even number, e.g 2 shards splitted to 4 (factor of 2), 2 shards splitted to 6 (factor of 3)
+  * shring api - shards down, e.g from 4,2 shards to 1
+ 
+    
+
 
 
 
