@@ -328,6 +328,10 @@ Index lifecycle policies define states of the index: hot, warm, cold, frozen, de
 
 we can set those policies based on the size of the index, e.g. after reaching 5 Gb capacity index is marked as 'delete'
 
+Get the status of the cluster
+```
+GET http://[host]:[port]/_cluster/health
+```
 
 
 
