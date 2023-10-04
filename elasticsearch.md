@@ -35,8 +35,28 @@ http://localhost:29200/webshop-plp-products-local/_search?pretty=true&q=*:*
 ```
 
 ## Query for a particular document in ES
+Default query to get source and and document data
 ```
 http://localhost:29200/webshop-plp-products-local/_doc/000001__01__de
+```
+
+Query to get the source data only
+```
+http://localhost:29200/webshop-plp-products-local/_source/000001__01__de
+```
+
+Query to get the doc data only
+```
+http://localhost:29200/webshop-plp-products-local/_doc/000001__01__de?_source=false
+```
+Query to get the particular source fields
+```
+http://localhost:29200/webshop-plp-products-local/_source/000001__01__de?_source_includes=color,baseProductCode,price_eur,productName
+```
+
+Query to sort out the particular source fields
+```
+http://localhost:29200/webshop-plp-products-local/_source/000001__01__de?_source_excludes=color,baseProductCode,price_eur,productName
 ```
 
 ## Filtering
@@ -194,7 +214,7 @@ PUT /[index]/_doc/[document_id]
 { ... }
 ```
 
-update document
+update document 
 ```
 POST /[index]/_update/[document_id]
 ```
@@ -202,6 +222,14 @@ POST /[index]/_update/[document_id]
 delete document
 ```
 DELETE /[index]/_doc/[document_id]
+```
+
+delete by query
+```
+POST /[index]/_delete_by_query
+{
+  "query" { "match" : { "author" : "Tolstoi" } }
+}
 ```
 
 ### update mapping
