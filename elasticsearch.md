@@ -208,23 +208,43 @@ GET /[index]/_search?q=[search_term]&sort=year&pretty
 * within 'raw' mapping the search would be `/_search?sort=title.raw&pretty`
 
 ## Basic operations over documents
-add document
+
+### add document
 ```
 PUT /[index]/_doc/[document_id]
 { ... }
 ```
 
-update document 
+### update document 
+#### simple update
 ```
 POST /[index]/_update/[document_id]
 ```
 
-delete document
+#### update with script
+
+```
+POST /[index]/_update/[document_id]
+{
+  "script": {
+    "source": """
+      if(ctx._source.boxoffice_gross_in_millions > 125) 
+        {ctx._source.blockbuster = true}
+      else 
+        {ctx._source.blockbuster = false}
+    """
+  }
+}
+
+```
+
+### delete document
+#### simple delete
 ```
 DELETE /[index]/_doc/[document_id]
 ```
 
-delete by query
+#### delete by query
 ```
 POST /[index]/_delete_by_query
 {
