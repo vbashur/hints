@@ -16,6 +16,13 @@ Explain what's hapening with search term
 
 }
 ```
+## Theory: how analyzers work
+_Tokenization_ - process of splitting sentences into individual words
+
+_Normalization_ - tokens (words) are transformed, modified, and enriched in the form of stemming, synonyms, stop words, and other features.
+
+_Stemming_ - words are reduced (stemmed) to their root words (for example, “author” is the root word for “authors” and “authored”)
+
 
 ## Bulk insert data
 
