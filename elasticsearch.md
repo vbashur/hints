@@ -130,6 +130,7 @@ some samples of useful filters
 
 ```
 
+**Note** 'term' query are not analyzed, i.e. there is a difference searching for 'product' and 'PROduct'
 #### search by phrase
 ```
 curl -X GET 'http://[host]:[port]/[index]/_search?pretty' --data '{
