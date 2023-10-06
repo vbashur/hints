@@ -120,6 +120,13 @@ curl -X GET 'http://[host]:[port]/[index]/_search?pretty' --data '{
   }
 }'
 ```
+
+**Note** 'term' queries are not analyzed, i.e. there is a difference searching for 'product' and 'Product'. Term is searching in inverted index, so 'Product' won't be found even if you have inserted it manually 
+
+keyword-typed fields will not be analyzed during indexing, so if you are searching by fieldName.keyword with 'term' operation it's gonna be okay
+
+
+
 some samples of useful filters
 ```
 # find documents where a field exists
@@ -130,7 +137,6 @@ some samples of useful filters
 
 ```
 
-**Note** 'term' query are not analyzed, i.e. there is a difference searching for 'product' and 'PROduct'
 
 
 #### search by phrase
