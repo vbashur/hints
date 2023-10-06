@@ -204,6 +204,33 @@ do
 done
 ```
 
+#### search tuning
+use `_source` array with list of fields inside to get the particular field value inside
+
+use `size` vith X value to get top X results (limit the output)
+
+use `from` to offset the results - useful for pagination
+
+use `highlight` to provide the field that you want to show highlited
+```
+GET movies/_search
+{
+  "_source": ["genre"],
+  "size": 5,
+  "query": {
+    "match": {
+      "certificate": "PG"
+    }
+  },
+  "highlight": {
+    "fields": {
+      "genre": {}
+    }
+  }
+}
+```
+
+
 
 ### sorting
 #### URI search sorting
