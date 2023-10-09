@@ -87,6 +87,21 @@ curl -X POST -H 'Content-Type: application/json' -i 'http://[host]:[port]/[index
 }'
 ```
 
+High-level syntax for boolaen queries
+```
+GET books/_search
+{
+  "query": {
+    "bool": {
+      "must": [{..}],
+      "must_not": [{..}],
+      "should": [{..}],
+      "filter": [{..}]
+    }
+  }  
+}
+```
+
 ## Search operations
 **Filters** - ask yes/no question of your data (use filters when you can - they are faster and cacheable)
 
