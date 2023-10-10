@@ -33,3 +33,18 @@ First `push` from a local branch to a remote branch that has not been set up\
 
 ### undo file change
 `git checkout -- <path_to_file>`
+
+### log of local changes to be pushed
+shows commits
+```
+git log origin/master..HEAD
+```
+shows file changes
+```
+git diff origin/master..HEAD
+```
+
+Show all commits that you have locally but not upstream with:
+```
+git log @{u}..
+```
