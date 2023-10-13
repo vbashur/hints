@@ -22,3 +22,18 @@ var <propertyName>[: <PropertyType>] [= <property_initializer]
     [<setter>]
 ```
 
+## 3.4 apply 'lazy' to enforce initialization of a property
+using a private backing field to enforce initialization of a property is a useful technique
+```
+class Customer(val name: String) {
+
+    val messages: List<String> by lazy { loadMessages() }  
+
+    private fun loadMessages(): MutableList<String> =
+        mutableListOf(
+            "Initial contact",
+            "Convinced them to use Kotlin",
+            "Sold training class. Sweet."
+        ).also { println("Loaded messages") }
+}
+```
