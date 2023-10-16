@@ -37,3 +37,14 @@ class Customer(val name: String) {
         ).also { println("Loaded messages") }
 }
 ```
+## 3.6 using lateinit for delayed initialization
+The purpose: you don’t have enough information to initialize a property in a constructor, but you don’t want to have to make the property nullable as a result.
+Example from spring framework:
+```
+@Autowired
+lateinit var client: WebTestClient    
+```
+The `lateinit` modifier can be used only on `var` properties declared inside the body of a class, and only when the property does not have a custom getter or setter.
+Since Kotlin 1.2, you can also use `lateinit` on top-level properties and even local variables. The type must be non-null, and it cannot be a primitive type
+
+
