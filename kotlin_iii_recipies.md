@@ -47,4 +47,22 @@ lateinit var client: WebTestClient
 The `lateinit` modifier can be used only on `var` properties declared inside the body of a class, and only when the property does not have a custom getter or setter.
 Since Kotlin 1.2, you can also use `lateinit` on top-level properties and even local variables. The type must be non-null, and it cannot be a primitive type
 
+## 4.1 & 4.2 fold vs reduce
+
+Use `fold` to reduce a sequence or collection to a single value 
+```
+inline fun <R> Iterable<T>.fold(
+    initial: R,
+    operation: (acc: R, T) -> R
+): R
+```
+
+Use `reduce` to reduce on a non-empty collection of values, but don’t need to set an initial value for the accumulator
+
+`reduce` does not have an argument that provides an initial value for the accumulator. The accumulator is therefore initialized with the first value from the collection
+```
+inline fun <S, T : S> Iterable<T>.reduce(
+    operation: (acc: S, T) -> S
+): S
+```
 
