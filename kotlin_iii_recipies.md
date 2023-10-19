@@ -66,3 +66,19 @@ inline fun <S, T : S> Iterable<T>.reduce(
 ): S
 ```
 
+## 5.4 associate
+Use `associate` to generate a map from the set of keys, each key might be associated with dedicated value
+```
+val keys = 'a'..'f'
+val map = keys.associate { it to it.toString().repeat(5).capitalize() }
+println(map) // {a=Aaaaa, b=Bbbbb, c=Ccccc, d=Ddddd, e=Eeeee}
+```
+
+## 5.7 split the list on smaller windows
+Use `chunked` with the window size
+```
+val range = 0..10
+val chunked = range.chunked(3)
+assertThat(chunked, contains(listOf(0, 1, 2), listOf(3, 4, 5), listOf(6, 7, 8), listOf(9, 10)))
+```
+
