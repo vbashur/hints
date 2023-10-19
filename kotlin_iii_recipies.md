@@ -75,10 +75,18 @@ println(map) // {a=Aaaaa, b=Bbbbb, c=Ccccc, d=Ddddd, e=Eeeee}
 ```
 
 ## 5.7 split the list on smaller windows
-Use `chunked` with the window size
+Use `chunked` or `windowed` with the window size
+**chunked**
 ```
 val range = 0..10
 val chunked = range.chunked(3)
 assertThat(chunked, contains(listOf(0, 1, 2), listOf(3, 4, 5), listOf(6, 7, 8), listOf(9, 10)))
 ```
-
+**windowed**
+```
+assertThat(range.windowed(3, 1),
+        contains(
+            listOf(0, 1, 2), listOf(1, 2, 3), listOf(2, 3, 4),
+            listOf(3, 4, 5), listOf(4, 5, 6), listOf(5, 6, 7),
+            listOf(6, 7, 8), listOf(7, 8, 9), listOf(8, 9, 10)))
+```
