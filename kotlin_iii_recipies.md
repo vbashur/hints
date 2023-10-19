@@ -76,6 +76,7 @@ println(map) // {a=Aaaaa, b=Bbbbb, c=Ccccc, d=Ddddd, e=Eeeee}
 
 ## 5.7 split the list on smaller windows
 Use `chunked` or `windowed` with the window size
+
 **chunked**
 ```
 val range = 0..10
