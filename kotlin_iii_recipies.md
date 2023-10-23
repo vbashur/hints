@@ -91,3 +91,17 @@ assertThat(range.windowed(3, 1),
             listOf(3, 4, 5), listOf(4, 5, 6), listOf(5, 6, 7),
             listOf(6, 7, 8), listOf(7, 8, 9), listOf(8, 9, 10)))
 ```
+
+## 7.3 using the let Function and Elvis
+use `let` with elvis operator when you want to execute a block of code only on a non-null reference, but return a default otherwise
+```
+fun processNullableString(str: String?) =
+    str?.let {          
+        when {
+            it.isEmpty() -> "Empty"
+            it.isBlank() -> "Blank"
+            else -> it.capitalize()
+        }
+    } ?: "Null"         
+```
+
