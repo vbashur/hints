@@ -110,7 +110,7 @@ use 'let' function reference
 numbers.map { it.length }.filter { it > 3 }.let(::println)
 ```
 
-# 8.3 ensure that value is not a null
+## 8.3 ensure that value is not a null
 
 use the notNull function to provide a delegate that throws an exception, if the value has not been set
 Kotlin will throw an `IllegalStateException`
@@ -124,3 +124,45 @@ fun `uninitialized value throws exception`() {
     assertThrows<IllegalStateException> { shouldNotBeNull }
 }
 ```
+
+## 8.4 use observable and vetoalble delegates
+`observable` helps to detect changes
+
+`vetoable` helps to decide whether to implement changes
+
+```
+fun <T> observable(
+    initialValue: T,
+    onChange: (property: KProperty<*>, oldValue: T, newValue: T) -> Unit
+): ReadWriteProperty<Any?, T>
+
+fun <T> vetoable(
+    initialValue: T,
+    onChange: (property: KProperty<*>, oldValue: T, newValue: T) -> Boolean
+): ReadWriteProperty<Any?, T>
+```
+
+examples of use:
+```
+var watched: Int by Delegates.observable(1) { prop, old, new ->
+    println("${prop.name} changed from $old to $new")
+}
+
+var checked: Int by Delegates.vetoable(0) { prop, old, new ->
+    println("Trying to change ${prop.name} from $old to $new")
+    new >= 0
+}
+....
+@Test
+fun `watched variable prints old and new values`() {
+    assertEquals(1, watched)
+    watched *= 2
+    assertEquals(2, watched)
+    watched *= 2
+    assertEquals(4, watched)
+}
+....
+watched changed from 1 to 2
+watched changed from 2 to 4
+```
+
