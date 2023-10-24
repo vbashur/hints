@@ -92,7 +92,7 @@ assertThat(range.windowed(3, 1),
             listOf(6, 7, 8), listOf(7, 8, 9), listOf(8, 9, 10)))
 ```
 
-## 7.3 using the let Function and Elvis
+## 7.3 using the let function and elvis
 use `let` with elvis operator when you want to execute a block of code only on a non-null reference, but return a default otherwise
 ```
 fun processNullableString(str: String?) =
@@ -105,3 +105,22 @@ fun processNullableString(str: String?) =
     } ?: "Null"         
 ```
 
+use 'let' function reference
+```
+numbers.map { it.length }.filter { it > 3 }.let(::println)
+```
+
+# 8.3 ensure that value is not a null
+
+use the notNull function to provide a delegate that throws an exception, if the value has not been set
+Kotlin will throw an `IllegalStateException`
+```
+var shouldNotBeNull: String by Delegates.notNull<String>()
+```
+how to test it
+```
+@Test
+fun `uninitialized value throws exception`() {
+    assertThrows<IllegalStateException> { shouldNotBeNull }
+}
+```
