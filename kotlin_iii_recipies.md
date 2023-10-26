@@ -227,3 +227,66 @@ fun get10LongestWordsInDictionary() =
     }
 ```
 
+## 10.5 write to a file
+write to a file and replace all of its existing contents `writeText`
+
+`appendText` is an extenstion function that can add data to a given file
+
+```
+File("myfile.txt").writeText("My data")
+```
+
+writing to a file with `use`
+```
+File(fileName).printWriter().use { writer ->
+    writer.println(data) }
+```
+
+## 11.2 executing lambda repeatedly
+use the buiilt-in `repeat` function that takes int parameter which is a number of repeats
+```
+fun main(args: Array<String>) {
+    repeat(5) {
+        println("Counting: $it")
+    }
+}
+```
+
+## 11.8 starting a thread
+below is the extension function called `thread` 
+```
+fun thread(
+    start: Boolean = true,
+    isDaemon: Boolean = false,
+    contextClassLoader: ClassLoader? = null,
+    name: String? = null,
+    priority: Int = -1,
+    block: () -> Unit
+): Thread
+```
+
+example of initiating a thread
+```
+(0..5).forEach { n ->
+    val sleepTime = Random.nextLong(range = 0..1000L)
+    thread {
+        Thread.sleep(sleepTime)
+        println("${Thread.currentThread().name} for $n after ${sleepTime}ms")
+    }
+}
+
+// initiating a daemon thread
+
+(0..5).forEach { n ->
+    val sleepTime = Random.nextLong(range = 0..1000L)
+    thread(isDaemon = true) {      1
+        Thread.sleep(sleepTime)
+        println("${Thread.currentThread().name} for $n after ${sleepTime}ms")
+    }
+}
+```
+
+
+
+
+
