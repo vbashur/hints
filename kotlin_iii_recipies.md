@@ -286,6 +286,31 @@ example of initiating a thread
 }
 ```
 
+## 12.3 injecting properties with spring
+4 ways of injecting properties
+```
+@RestController   // 1 Class with a single constructor
+class GreetingController(val service: GreetingService) { /* ... */ }
+
+@RestController   // 2 Explicit autowiring
+class GreetingController(@Autowired val service: GreetingService) { /* ... */ }
+
+@RestController   // 3 Autowiring constructor call, primarily for classes with multiple dependencies
+class GreetingController @Autowired constructor(val service: GreetingService) {
+    // ... (normal 4-space indent)
+}
+
+@RestController   // 4 Field injection (not preferred, but can be useful)
+class GreetingController {
+    @Autowired
+    lateinit var service: GreetingService
+
+    // ... rest of class ...
+}
+```
+
+
+
 
 
 
