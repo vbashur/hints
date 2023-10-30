@@ -309,6 +309,51 @@ class GreetingController {
 }
 ```
 
+# 13.1 using coroutines with runBlocking
+sample of `runBlocking`
+
+```
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
+
+fun main() {
+    println("Before creating coroutine")
+    runBlocking {
+        print("Hello, ")
+        delay(200L)
+        println("World!")
+    }
+    println("After coroutine is finished")
+}
+
+// output is
+Before creating coroutine
+Hello, World! // 200 ms delay between hello and world 
+After coroutine finished
+```
+
+sample of `launch` function
+```
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+
+fun main() {
+    println("Before runBlocking")
+    runBlocking {                 
+        println("Before launch")
+        launch {                  
+            print("Hello, ")
+            delay(200L)
+            println("World!")
+        }
+        println("After launch")
+    }
+    println("After runBlocking")
+}
+```
+
+
 
 
 
