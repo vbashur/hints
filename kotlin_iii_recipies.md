@@ -309,7 +309,7 @@ class GreetingController {
 }
 ```
 
-# 13.1 using coroutines with runBlocking
+## 13.1 using coroutines with runBlocking
 sample of `runBlocking`
 
 ```
@@ -350,6 +350,55 @@ fun main() {
         println("After launch")
     }
     println("After runBlocking")
+}
+```
+
+## 13.3 using dispatcher for coroutine contexts
+dispatcher determines which thread or thread pool the coroutines use for their execution
+
+Built-in dispatchers provided by the library include the following:
+* Dispatchers.Default
+* Dispatchers.IO
+* Dispatchers.Unconfined
+
+Example:
+```
+fun main() = runBlocking<Unit> {
+    launchWithIO()
+    launchWithDefault()
+}
+
+suspend fun launchWithIO() {
+    withContext(Dispatchers.IO) { // IO dispatcher
+        delay(100L)
+        println("Using Dispatchers.IO")
+        println(Thread.currentThread().name)
+    }
+}
+
+suspend fun launchWithDefault() {
+    withContext(Dispatchers.Default) { // default dispatcher
+        delay(100L)
+        println("Using Dispatchers.Default")
+        println(Thread.currentThread().name)
+    }
+}
+```
+
+## 13.5 cancelling the job
+```
+fun main() = runBlocking {
+    val job = launch {
+        repeat(100) { i ->
+            println("job: I'm waiting $i...")
+            delay(100L)
+        }
+    }
+    delay(500L)
+    println("main: That's enough waiting")
+    job.cancel()
+    job.join()
+    println("main: Done")
 }
 ```
 
