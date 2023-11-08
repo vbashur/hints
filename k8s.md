@@ -115,5 +115,44 @@ config map - special resource that you store in k8s that is used by your environ
 
 
 
+# Cheatsheet :robot:
+
+### context and configuration
+| command                                                           | description                | example                                        |
+|-------------------------------------------------------------------|----------------------------|------------------------------------------------|
+| kubectl config get-contexts                                       | 	Display list of contexts	 |                                                |
+| kubectl config current-context                                    | Display the current-context|                                                |
+| kubectl config use-context <cluster-name>	                        | Change the current cluster| kubectl config use-context bs252-d-euw-aks-hey | 
+| kubectl config set-context --current --namespace=<namespace_name> | Set the default namespace to <namespace_name> | |  
+| kubectl config view                                               | Display configuration| |
+| kubectl get pods -n <namespace_name>                              | List all pods in a namespace | |
+| kubectl describe pods <pod_name>                                  | Describe commands with verbose output | |
+
+### logs 
+
+| command                                                           | description                | example                                        |
+|-------------------------------------------------------------------|----------------------------|------------------------------------------------|
+| kubectl -n <namespace> get events --sort-by='{.lastTimestamp}' | Print latest events in a namespace | |
+| kubectl logs <pod_name> |	Print the logs for a pod | |
+| kubectl logs --since=6h <pod_name> | Print the logs for the last 6 hours for a pod | |
+| kubectl logs --tail=50 <pod_name> | 	Get the most recent 50 lines of logs for a pod | |
+| kubectl logs -f <pod_name> | Print the logs for a pod and follow new logs | |
+| kubectl logs <pod_name> --all-containers | View the logs for all containers in a pod | |
+
+### executing in running pods
+| command                                                           | description                | 
+|-------------------------------------------------------------------|----------------------------|
+| kubectl exec -it <pod_name> -- /bin/bash | Open a bash command shell |
+| kubectl exec -it <pod_name> -- /bin/bash -c "command(s)" | kubectl exec -it <pod_name> -- /bin/bash -c "command(s)" |
+| kubectl rollout restart <pod_name> | restart a pod |
+
+
+
+
+
+
+
+
+
 
 
