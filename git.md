@@ -48,3 +48,18 @@ Show all commits that you have locally but not upstream with:
 ```
 git log @{u}..
 ```
+
+### forget about a file
+* remove file from tracking history. To stop tracking a file, we must remove it from the index
+  
+`git rm --cached <file>`  
+`git rm -r --cached <folder>`  
+
+* make git forgetting about the file changes  
+`git update-index --assume-unchanged <file>`
+
+
+
+
+
+
