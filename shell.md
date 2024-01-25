@@ -7,3 +7,9 @@ Apply changes made in .zshrc (re-read the file)\
 
 Find the occurence of the search term in all files of the specified directory
 `grep -rnw '/path/to/somewhere/' -e 'pattern'`
+
+
+Find the specific file name (e.g. with extension 'err')  
+```
+find ./ -name "*.err"
+```
