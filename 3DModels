@@ -36,7 +36,12 @@ https://metaspark.facebookblueprint.com/student/collection/571258-meta-spark-ar-
 
 ## integrating models into applications
 
-embed model inyto web application
+embed model into web application
 https://mobikul.com/ar-core-with-glb-gltf-model-using-sceneform/
 
+### Tooling
+
+Spark AR - very nice AR effects but lots of restrictions: bound to meta products, not enough patches for hand tracking
+Unity3D - allows the advanced applications of AR features
+ARKit (from Apple) - looks perspective in a wave pf hype around Vision Pro headset
 
