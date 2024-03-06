@@ -467,6 +467,11 @@ Get the shards info
 GET http://[host]:[port]/_cat/shards?v
 ```
 
+Get the nodes info
+```
+GET http://[host]:[port]/_cat/nodes?v
+```
+
 Get the cluster allocation info
 ```
 GET http://[host]:[port]/_cluster/allocation/explain?pretty
@@ -488,6 +493,10 @@ GET http://[host]:[port]/_cluster/allocation/explain?pretty
   * shring api - shards down, e.g from 4,2 shards to 1
  
     
+
+### Links and sources of knowledge
+
+(ES under the hood by Philipp Krenn - youtube)[https://www.youtube.com/watch?v=cpsgAQFkhCE&t=2831s]
 
 
 
