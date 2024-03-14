@@ -25,13 +25,18 @@ https://www.youtube.com/watch?v=GJ2gtQ0WxTU
 Guide to scan from all sides
 https://www.youtube.com/watch?v=U67RJG6DJ_8&t=601s
 
+Amazing long video about a bunch of aspects from photogrammetry world  
+https://www.youtube.com/watch?v=REA3XNgUMJg&t=1409s
+
+
 ## Blender
 simplify a model in blender
 
 https://spark.meta.com/learn/articles/creating-and-prepping-assets/toolkit-for-blender/
 
 
-##3 AR toolkit
+## Spark AR toolkit
+
 add the model to spark toolkit
 https://danielpikl.medium.com/ar-sneakers-from-the-box-to-your-feet-in-augmented-reality-10c82ae69aa3
 
@@ -40,6 +45,11 @@ https://www.youtube.com/watch?v=IKkgAcRhxDw&t=256s
 
 tracking a foot and apply a 3D model on it
 https://emiliusvgs.com/spark-ar-tutorial-fake-foot-tracking/
+
+
+tracking hand tutorial: nice one to accomodate all needs for 3D object representation like in original idea:  
+https://spark.meta.com/learn/tutorials/tracking-a-texture-to-the-hand
+
 
 would be nice to look at surface recognition:
 https://www.youtube.com/watch?v=na6GyhMZ0Lw
@@ -54,7 +64,8 @@ https://mobikul.com/ar-core-with-glb-gltf-model-using-sceneform/
 
 ### Tooling
 
-Spark AR - very nice AR effects but lots of restrictions: bound to meta products, not enough patches for hand tracking
-Unity3D - allows the advanced applications of AR features
-ARKit (from Apple) - looks perspective in a wave pf hype around Vision Pro headset
+Spark AR - very nice AR effects but lots of restrictions: bound to meta products, not enough patches for hand tracking  
+Unity3D - allows the advanced applications of AR features  
+ARKit (from Apple) - looks perspective in a wave of hype around Vision Pro headset  
+
 
