@@ -67,5 +67,5 @@ https://mobikul.com/ar-core-with-glb-gltf-model-using-sceneform/
 Spark AR - very nice AR effects but lots of restrictions: bound to meta products, not enough patches for hand tracking  
 Unity3D - allows the advanced applications of AR features  
 ARKit (from Apple) - looks perspective in a wave of hype around Vision Pro headset  
-
+Cinema 4D from Apple   https://www.youtube.com/watch?v=vh2LOEG9Zf8
 
