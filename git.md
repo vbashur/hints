@@ -49,6 +49,11 @@ Show all commits that you have locally but not upstream with:
 git log @{u}..
 ```
 
+Undo the recent commit
+```
+git reset --soft HEAD^
+```
+
 ### forget about a file
 * remove file from tracking history. To stop tracking a file, we must remove it from the index
   
