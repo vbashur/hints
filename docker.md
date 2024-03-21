@@ -17,7 +17,6 @@ image contains application code, lang runtime, libs etc
 
 
 
-
 Create an image from Dockerfile
 ```
  docker build -t wrmck .
