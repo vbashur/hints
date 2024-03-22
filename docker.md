@@ -14,6 +14,21 @@ _container vs image_
 container is a running instance of an image  
 image contains application code, lang runtime, libs etc
 
+## starting a container
+* on launching system container you gotta provide an application name to have it run a default command as well, e.g.  
+```shell
+docker run -it busybox /bin/sh
+```
+* on running an application image this is not required, e.g.  
+```shell
+docker run -d nginx  # -d stands for running in  background
+```
+
+search container
+```
+docker search
+```
+
 
 
 
