@@ -67,4 +67,19 @@ runnning the shell inside the container
 docker exec -it <container name> <command name, e.g. bash>
 ```
 
+## troubleshooting the containers
+
+if something went wrong on starting a container run `docker ps -a` it shows the status even for failed containers  
+`docker logs <container name>` helps to read the log data from the failed container  
+
+
+## docker images
+list all available images `docker image ls` or `docker images`   
+
+# MISC
+
+create file with a content just in command line
 ```
+cat > Dockerfile <<EOF
+```
+
