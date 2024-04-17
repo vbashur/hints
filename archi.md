@@ -60,6 +60,20 @@ focus on the ability of a system to recover from disruptions, dynamically meed d
 
 ### 
 
+
+# Reliability
+
+## patterns
+
+### circuit breaker
+Prevents continuous requests to a malfunctioning or unavailable dependency.  
+Handle faults that might take a variable amount of time to recover from, when connecting to a remote service or resource.
+it might be pointless for an application to continually retry an operation that is unlikely to succeed, and instead the application should quickly accept that the operation has failed and handle this failure accordingly
+The **Retry** pattern enables an application to retry an operation in the expectation that it'll succeed.    
+The **Circuit Breaker** pattern prevents an application from performing an operation that is likely to fail.  
+
+A circuit breaker acts as a proxy for operations that might fail. The proxy should monitor the number of recent failures that have occurred, and use this information to decide whether to allow the operation to proceed, or simply return an exception immediately.
+
 # links
 What is well-architected framework - MS Azure (video, 35 mins) - https://www.youtube.com/watch?v=vTjasx3ahjM&t
 What is well-architected framework - AWS (video, 10 mins) - https://www.youtube.com/watch?v=MpDJ6TCWKjk
