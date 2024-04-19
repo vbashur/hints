@@ -77,3 +77,6 @@ A circuit breaker acts as a proxy for operations that might fail. The proxy shou
 # links
 What is well-architected framework - MS Azure (video, 35 mins) - https://www.youtube.com/watch?v=vTjasx3ahjM&t
 What is well-architected framework - AWS (video, 10 mins) - https://www.youtube.com/watch?v=MpDJ6TCWKjk
+Get started with java on Azure (workshop, 40 mins) - https://learn.microsoft.com/en-us/training/modules/containerize-deploy-java-app-aks/
+
+
