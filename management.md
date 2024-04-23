@@ -23,3 +23,6 @@ Let's convience them to apply a new javascript MVC framework
 **thinking** will be convienced with facts and numbers  
 **feeling** will be convienced with live demo
 
+it's not the manager's interest to see emplyee's fail
+replacing people is difficult and expensive and makes manager looking bad
+
