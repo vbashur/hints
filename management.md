@@ -18,3 +18,8 @@ surprise means both sides missed their chances to make everything work
 
 the goal is not about winning the conflict, the goal is about being understood
 
+people with **thinking** vs people with **feeling** perception  
+Let's convience them to apply a new javascript MVC framework  
+**thinking** will be convienced with facts and numbers  
+**feeling** will be convienced with live demo
+
