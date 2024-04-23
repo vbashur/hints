@@ -26,3 +26,4 @@ Let's convience them to apply a new javascript MVC framework
 it's not the manager's interest to see emplyee's fail
 replacing people is difficult and expensive and makes manager looking bad
 
+that turns out not to be the case
