@@ -15,3 +15,6 @@ the first questions on exit interview:
 - did your boss know about it?
 
 surprise means both sides missed their chances to make everything work
+
+the goal is not about winning the conflict, the goal is about being understood
+
