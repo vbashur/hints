@@ -63,7 +63,15 @@ git reset --soft HEAD^
 * make git forgetting about the file changes  
 `git update-index --assume-unchanged <file>`
 
+### change the commit author for the last commit
 
+```
+git config --local user.name "Mama Papa"
+
+git config --local user.email mamapapa@email.com
+
+git commit --amend --reset-author --no-edit
+```
 
 
 
